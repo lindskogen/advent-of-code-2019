@@ -286,6 +286,11 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
+"@jfet97/csp@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@jfet97/csp/-/csp-1.0.9.tgz#136e9a589f0c4df942c9cbaa6142a78e0ac0209e"
+  integrity sha512-wACr77tHX4SR7bNiqO6sV4z2l+l53PgmhU6OD/7GypuTweVuOOUQYL2JCfNq6Inh64MwUp9vZJglizC6aA5b/w==
+
 "@types/babel__core@^7.1.0":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.3.tgz#e441ea7df63cd080dfcd02ab199e6d16a735fc30"
