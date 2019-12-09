@@ -1,5 +1,6 @@
 import { Channel } from "@jfet97/csp";
 import "@jfet97/csp/dist/operators/fromIterable";
+import { instructionLength, IntCodeOp } from "./asm";
 import {
   getAddressWithParameterMode,
   getValueWithParameterMode
@@ -18,14 +19,15 @@ export const runProgram = async (
   const getParam = (pos: number) => opCodes[index + pos] ?? 0;
 
   wh: while (true) {
+    let didJump = false;
     const [[pmode1, pmode2, pmode3], instruction] = calculateParameterModes(
       getParam(0)
     );
 
     switch (instruction) {
-      case 99:
+      case IntCodeOp.Halt:
         break wh;
-      case 1: {
+      case IntCodeOp.Add: {
         let p1 = getParam(1);
         let p2 = getParam(2);
         let p3 = getParam(3);
@@ -34,10 +36,9 @@ export const runProgram = async (
         let d = getAddressWithParameterMode(relativeBase, p3, pmode3);
 
         opCodes[d] = v1 + v2;
-        index += 4;
         break;
       }
-      case 2: {
+      case IntCodeOp.Mul: {
         let p1 = getParam(1);
         let p2 = getParam(2);
         let p3 = getParam(3);
@@ -46,17 +47,15 @@ export const runProgram = async (
         let d = getAddressWithParameterMode(relativeBase, p3, pmode3);
 
         opCodes[d] = v1 * v2;
-        index += 4;
         break;
       }
-      case 3: {
+      case IntCodeOp.In: {
         let p1 = getParam(1);
         let d = getAddressWithParameterMode(relativeBase, p1, pmode1);
         opCodes[d] = await input.take();
-        index += 2;
         break;
       }
-      case 4: {
+      case IntCodeOp.Out: {
         let p1 = getParam(1);
         const param = getValueWithParameterMode(
           opCodes,
@@ -66,30 +65,27 @@ export const runProgram = async (
         );
         outputs.push(param);
         output.put(param);
-        index += 2;
         break;
       }
-      case 5: {
+      case IntCodeOp.JmpTrue: {
         let p1 = getParam(1);
         let p2 = getParam(2);
         if (getValueWithParameterMode(opCodes, relativeBase, p1, pmode1)) {
+          didJump = true;
           index = getValueWithParameterMode(opCodes, relativeBase, p2, pmode2);
-        } else {
-          index += 3;
         }
         break;
       }
-      case 6: {
+      case IntCodeOp.JmpFalse: {
         let p1 = getParam(1);
         let p2 = getParam(2);
         if (!getValueWithParameterMode(opCodes, relativeBase, p1, pmode1)) {
+          didJump = true;
           index = getValueWithParameterMode(opCodes, relativeBase, p2, pmode2);
-        } else {
-          index += 3;
         }
         break;
       }
-      case 7: {
+      case IntCodeOp.LessThan: {
         let p1 = getParam(1);
         let p2 = getParam(2);
         let p3 = getParam(3);
@@ -98,10 +94,9 @@ export const runProgram = async (
           getValueWithParameterMode(opCodes, relativeBase, p2, pmode2);
         let d = getAddressWithParameterMode(relativeBase, p3, pmode3);
         opCodes[d] = res ? 1 : 0;
-        index += 4;
         break;
       }
-      case 8: {
+      case IntCodeOp.Equals: {
         let p1 = getParam(1);
         let p2 = getParam(2);
         let p3 = getParam(3);
@@ -110,16 +105,22 @@ export const runProgram = async (
           getValueWithParameterMode(opCodes, relativeBase, p2, pmode2);
         let d = getAddressWithParameterMode(relativeBase, p3, pmode3);
         opCodes[d] = res ? 1 : 0;
-        index += 4;
         break;
       }
-      case 9: {
+      case IntCodeOp.SetRel: {
         let p1 = getParam(1);
-        relativeBase += getValueWithParameterMode(opCodes, relativeBase, p1, pmode1);
+        relativeBase += getValueWithParameterMode(
+          opCodes,
+          relativeBase,
+          p1,
+          pmode1
+        );
 
-        index += 2;
         break;
       }
+    }
+    if (!didJump) {
+      index += instructionLength[instruction] + 1;
     }
   }
   return outputs;

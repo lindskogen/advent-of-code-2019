@@ -1,0 +1,311 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`disas puzzel input 1`] = `
+"0: Mul #34463338 #34463338 $63
+4: LessThan $63 #34463338 $63
+8: JmpTrue $63 #53
+11: Add #0 #3 $1000
+15: SetRel #988
+17: SetRel 12
+19: SetRel $1000
+21: SetRel 6
+23: SetRel 3
+25: In 0
+27: Equals $1000 #1 $63
+31: JmpTrue $63 #65
+34: Equals $1000 #2 $63
+38: JmpTrue $63 #904
+41: Equals $1000 #0 $63
+45: JmpTrue $63 #58
+48: Out $25
+50: Out #0
+52: Halt
+53: Out $0
+55: Out #0
+57: Halt
+58: Out $17
+60: Out #0
+62: Halt
+63: #0
+64: #0
+65: Mul #23 #1 $1004
+69: Mul #1 #26 $1000
+73: Mul #897 #1 $1028
+77: Add #27 #0 $1012
+81: Mul #33 #1 $1001
+85: Mul #32 #1 $1007
+89: Add #39 #0 $1005
+93: Add #0 #29 $1018
+97: Add #0 #0 $1020
+101: Add #1 #0 $1021
+105: Add #0 #21 $1002
+109: Mul #1 #35 $1014
+113: Add #0 #36 $1009
+117: Mul #1 #38 $1006
+121: Mul #1 #251 $1024
+125: Mul #28 #1 $1017
+129: Mul #37 #1 $1008
+133: Mul #1 #329 $1026
+137: Mul #25 #1 $1011
+141: Mul #31 #1 $1013
+145: Mul #892 #1 $1029
+149: Mul #242 #1 $1025
+153: Mul #1 #881 $1022
+157: Mul #22 #1 $1003
+161: Mul #874 #1 $1023
+165: Add #20 #0 $1016
+169: Add #24 #0 $1019
+173: Add #0 #326 $1027
+177: Add #0 #34 $1015
+181: Mul #1 #30 $1010
+185: SetRel #-2
+187: Mul #1 7 $63
+191: Equals $63 #36 $63
+195: JmpTrue $63 #205
+198: Add $64 #1 $64
+202: JmpTrue #1 #207
+205: Out $187
+207: Mul $64 #2 $64
+211: SetRel #9
+213: Add #40 #0 6
+217: Equals $1013 #43 $63
+221: JmpTrue $63 #227
+224: JmpTrue #1 #233
+227: Out $213
+229: Add $64 #1 $64
+233: Mul $64 #2 $64
+237: SetRel #26
+239: JmpTrue #1 -9
+242: Out $239
+244: Add $64 #1 $64
+248: JmpFalse #0 #251
+251: Mul $64 #2 $64
+255: SetRel #-15
+257: JmpTrue 2 #263
+260: JmpTrue #1 #269
+263: Out $257
+265: Add $64 #1 $64
+269: Mul $64 #2 $64
+273: SetRel #-9
+275: Mul #1 0 $63
+279: Equals $63 #36 $63
+283: JmpTrue $63 #295
+286: Out $275
+288: Add $64 #1 $64
+292: JmpFalse #0 #295
+295: Mul $64 #2 $64
+299: SetRel #-14
+301: LessThan 10 #38 $63
+305: JmpTrue $63 #311
+308: JmpTrue #1 #317
+311: Out $301
+313: Add $64 #1 $64
+317: Mul $64 #2 $64
+321: SetRel #28
+323: JmpFalse #0 4
+326: JmpFalse #0 #335
+329: Out $323
+331: Add $64 #1 $64
+335: Mul $64 #2 $64
+339: SetRel #-8
+341: JmpFalse 6 #351
+344: Add $64 #1 $64
+348: JmpFalse #0 #353
+351: Out $341
+353: Mul $64 #2 $64
+357: SetRel #-1
+359: LessThan #33 -7 $63
+363: JmpTrue $63 #369
+366: JmpFalse #0 #375
+369: Out $359
+371: Add $64 #1 $64
+375: Mul $64 #2 $64
+379: SetRel #-9
+381: Equals #26 -1 $63
+385: JmpTrue $63 #395
+388: Add $64 #1 $64
+392: JmpFalse #0 #397
+395: Out $381
+397: Mul $64 #2 $64
+401: SetRel #3
+403: Add -2 #0 $63
+407: Equals $63 #38 $63
+411: JmpTrue $63 #419
+414: Out $403
+416: JmpTrue #1 #423
+419: Add $64 #1 $64
+423: Mul $64 #2 $64
+427: SetRel #-13
+429: Add #0 9 $63
+433: Equals $63 #23 $63
+437: JmpTrue $63 #445
+440: Out $429
+442: JmpTrue #1 #449
+445: Add $64 #1 $64
+449: Mul $64 #2 $64
+453: SetRel #11
+455: Equals 1 #32 $63
+459: JmpTrue $63 #471
+462: Out $455
+464: Add $64 #1 $64
+468: JmpFalse #0 #471
+471: Mul $64 #2 $64
+475: SetRel #17
+477: Equals #41 #38 -4
+481: JmpTrue $1019 #487
+484: JmpTrue #1 #493
+487: Out $477
+489: Add $64 #1 $64
+493: Mul $64 #2 $64
+497: SetRel #6
+499: JmpFalse -9 #511
+502: Out $499
+504: Add $64 #1 $64
+508: JmpFalse #0 #511
+511: Mul $64 #2 $64
+515: SetRel #-23
+517: Mul #42 #1 8
+521: Equals $1014 #42 $63
+525: JmpTrue $63 #533
+528: Out $517
+530: JmpFalse #0 #537
+533: Add $64 #1 $64
+537: Mul $64 #2 $64
+541: SetRel #-3
+543: LessThan #36 5 $63
+547: JmpTrue $63 #555
+550: Out $543
+552: JmpFalse #0 #559
+555: Add $64 #1 $64
+559: Mul $64 #2 $64
+563: SetRel #-6
+565: Mul 5 #1 $63
+569: Equals $63 #21 $63
+573: JmpTrue $63 #581
+576: Out $565
+578: JmpFalse #0 #585
+581: Add $64 #1 $64
+585: Mul $64 #2 $64
+589: SetRel #1
+591: Equals 10 #40 $63
+595: JmpTrue $63 #605
+598: Add $64 #1 $64
+602: JmpFalse #0 #607
+605: Out $591
+607: Mul $64 #2 $64
+611: SetRel #7
+613: Add 0 #0 $63
+617: Equals $63 #42 $63
+621: JmpTrue $63 #631
+624: Add $64 #1 $64
+628: JmpFalse #0 #633
+631: Out $613
+633: Mul $64 #2 $64
+637: SetRel #1
+639: LessThan #43 #42 7
+643: JmpTrue $1013 #649
+646: JmpTrue #1 #655
+649: Out $639
+651: Add $64 #1 $64
+655: Mul $64 #2 $64
+659: SetRel #7
+661: Equals #44 #44 3
+665: JmpTrue $1016 #677
+668: Out $661
+670: Add $64 #1 $64
+674: JmpFalse #0 #677
+677: Mul $64 #2 $64
+681: SetRel #-7
+683: Mul #45 #1 9
+687: Equals $1015 #44 $63
+691: JmpTrue $63 #701
+694: Add $64 #1 $64
+698: JmpFalse #0 #703
+701: Out $683
+703: Mul $64 #2 $64
+707: SetRel #13
+709: Add #46 #0 -7
+713: Equals $1012 #46 $63
+717: JmpTrue $63 #729
+720: Out $709
+722: Add $64 #1 $64
+726: JmpTrue #1 #729
+729: Mul $64 #2 $64
+733: SetRel #-13
+735: Add #0 3 $63
+739: Equals $63 #33 $63
+743: JmpTrue $63 #753
+746: Add $64 #1 $64
+750: JmpFalse #0 #755
+753: Out $735
+755: Mul $64 #2 $64
+759: SetRel #14
+761: JmpTrue 1 #773
+764: Out $761
+766: Add $64 #1 $64
+770: JmpTrue #1 #773
+773: Mul $64 #2 $64
+777: SetRel #-23
+779: Mul 10 #1 $63
+783: Equals $63 #30 $63
+787: JmpTrue $63 #797
+790: Add $64 #1 $64
+794: JmpTrue #1 #799
+797: Out $779
+799: Mul $64 #2 $64
+803: SetRel #13
+805: Equals #22 -7 $63
+809: JmpTrue $63 #817
+812: Out $805
+814: JmpFalse #0 #821
+817: Add $64 #1 $64
+821: Mul $64 #2 $64
+825: SetRel #-11
+827: LessThan 5 #24 $63
+831: JmpTrue $63 #843
+834: Out $827
+836: Add $64 #1 $64
+840: JmpTrue #1 #843
+843: Mul $64 #2 $64
+847: SetRel #11
+849: LessThan #47 #48 7
+853: JmpTrue $1017 #861
+856: Out $849
+858: JmpFalse #0 #865
+861: Add $64 #1 $64
+865: Mul $64 #2 $64
+869: SetRel #15
+871: JmpTrue #1 -2
+874: Add $64 #1 $64
+878: JmpFalse #0 #883
+881: Out $871
+883: Mul $64 #2 $64
+887: SetRel #10
+889: JmpFalse #0 -7
+892: Out $889
+894: JmpFalse #0 #901
+897: Add $64 #1 $64
+901: Out $64
+903: Halt
+904: Mul #1 #27 1
+908: Mul #1 #915 0
+912: JmpTrue #1 #922
+915: Add 1 #28510 1
+919: Out 1
+921: Halt
+922: SetRel #3
+924: LessThan -2 #3 $63
+928: JmpTrue $63 #964
+931: Add -2 #-1 1
+935: Mul #1 #942 0
+939: JmpFalse #0 #922
+942: Mul #1 1 -1
+946: Add -2 #-3 1
+950: Add #957 #0 0
+954: JmpFalse #0 #922
+957: Add 1 -1 -2
+961: JmpTrue #1 #968
+964: Mul -2 #1 -2
+968: SetRel #-3
+970: JmpFalse #0 0"
+`;

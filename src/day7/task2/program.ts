@@ -1,31 +1,9 @@
 import { Channel } from "@jfet97/csp";
+import { calculateParameterModes, ParameterMode } from "../../intcode/parameterModes";
 
 export const parseInput = (input: string): number[] =>
   input.split(",").map(str => parseInt(str, 10));
 
-enum ParameterMode {
-  Position = 0,
-  Immeditate = 1
-}
-
-export const calculateParameterModes = (
-  input: number
-): [[ParameterMode, ParameterMode, ParameterMode], number] => {
-  let parameterMode: [ParameterMode, ParameterMode, ParameterMode] = [0, 0, 0];
-  let instruction = input;
-  if (instruction > 99) {
-    let x = Math.floor(instruction / 100);
-
-    parameterMode = [
-      x % 10,
-      Math.floor((x / 10) % 10),
-      Math.floor((x / 100) % 10)
-    ];
-    instruction = Math.floor(instruction % 100);
-  }
-
-  return [parameterMode, instruction];
-};
 
 const getValueWithParameterMode = (
   opCodes: number[],
@@ -35,7 +13,7 @@ const getValueWithParameterMode = (
   switch (paramMode) {
     case ParameterMode.Position:
       return opCodes[param];
-    case ParameterMode.Immeditate:
+    case ParameterMode.Immediate:
       return param;
     default:
       throw new Error("Unknown parameter mode " + paramMode);

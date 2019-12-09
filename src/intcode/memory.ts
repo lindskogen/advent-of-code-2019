@@ -8,7 +8,7 @@ export const getAddressWithParameterMode = (
   switch (paramMode) {
     case ParameterMode.Position:
       return param;
-    case ParameterMode.Immeditate:
+    case ParameterMode.Immediate:
       return param;
     case ParameterMode.Relative:
       return relativeBase + param;
@@ -22,7 +22,7 @@ export const getValueWithParameterMode = (
   param: number,
   paramMode: ParameterMode
 ): number => {
-  if (paramMode === ParameterMode.Immeditate) {
+  if (paramMode === ParameterMode.Immediate) {
     return param;
   } else {
     return opCodes[getAddressWithParameterMode(relativeBase, param, paramMode)] ?? 0;
