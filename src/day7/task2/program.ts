@@ -45,8 +45,9 @@ const getValueWithParameterMode = (
 export const runProgram = async (
   logIndex: number,
   opCodes: number[],
-  input: Channel<number>
-  , output: Channel<number>): Promise<number[]> => {
+  input: Channel<number>,
+  output: Channel<number>
+): Promise<number[]> => {
   let outputs = [];
   let index = 0;
   wh: while (true) {
