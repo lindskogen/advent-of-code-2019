@@ -4,17 +4,17 @@ type AstroidCountMap = Record<string, number>;
 export const parseInput = (input: string): AstroidMap =>
   input.split("\n").map(line => line.split("").map(c => c === "#"));
 
-const stringifyKey = (x: [number, number]) => `${x[0]},${x[1]}`;
+export const stringifyKey = (x: [number, number]) => `${x[0]},${x[1]}`;
 
-const parseKey = (s: string): [number, number] => {
+export const parseKey = (s: string): [number, number] => {
   const [x, y] = s.split(",").map(i => parseInt(i, 10));
   return [x, y];
 };
 
 export const mapInput = (astroidMap: AstroidMap): AstroidCountMap => {
   const map: AstroidCountMap = {};
-  astroidMap.forEach((list, x) => {
-    list.forEach((item, y) => {
+  astroidMap.forEach((list, y) => {
+    list.forEach((item, x) => {
       if (item) {
         map[stringifyKey([x, y])] = 1;
       }
@@ -23,7 +23,7 @@ export const mapInput = (astroidMap: AstroidMap): AstroidCountMap => {
   return map;
 };
 
-const cartesianProduct = <T, V>(setA: T[], setB: V[]): [T, V][] => {
+export const cartesianProduct = <T, V>(setA: T[], setB: V[]): [T, V][] => {
   if (!setA || !setB || !setA.length || !setB.length) {
     return [];
   }
@@ -36,7 +36,7 @@ const cartesianProduct = <T, V>(setA: T[], setB: V[]): [T, V][] => {
   return product;
 };
 
-const gcd = (x: number, y: number): number => {
+export const gcd = (x: number, y: number): number => {
   x = Math.abs(x);
   y = Math.abs(y);
   while (y) {
@@ -59,20 +59,19 @@ const gcdKey = (x1: number, y1: number, x2: number, y2: number): string => {
   }
 };
 
-const distance = (x1: number, y1: number, x2: number, y2: number): number =>
+export const distance = (x1: number, y1: number, x2: number, y2: number): number =>
   Math.hypot(x2 - x1, y2 - y1);
 
-export const countAstroids = (astroidMap: AstroidMap): AstroidCountMap => {
+type DistanceMap = Record<string,
+  Record<string, [string, number]>>;
+export const countAstroids = (astroidMap: AstroidMap): [AstroidCountMap, DistanceMap] => {
   const baseMap = mapInput(astroidMap);
 
   const coords = Object.keys(baseMap);
 
   const pairs = cartesianProduct(coords, coords);
 
-  const childAngleDistanceMap: Record<
-    string,
-    Record<string, [string, number]>
-  > = {};
+  const childAngleDistanceMap: DistanceMap = {};
 
   pairs.forEach(([p1, p2]) => {
     if (p1 === p2) {
@@ -103,7 +102,7 @@ export const countAstroids = (astroidMap: AstroidMap): AstroidCountMap => {
     baseMap[coord] = Object.keys(childAngleDistanceMap[coord]).length;
   });
 
-  return baseMap;
+  return [baseMap, childAngleDistanceMap];
 };
 
 export const findMostConnectedAstroid = (
